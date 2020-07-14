@@ -16,15 +16,15 @@ export class ShoppingListService {
 
   constructor() { }
   getIngredients() {
-    return this.ingredients.slice();       
+    return this.ingredients;       
   }
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
-    this.ingredientsChanged.next(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients);
   }
 
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
-    this.ingredientsChanged.next(ingredients.slice());
+    this.ingredientsChanged.next(ingredients);
   }
 }
