@@ -3,8 +3,10 @@
         <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-xs-12">
-                    <button type="submit" class="btn btn-success">Save</button>
-                    <button type="button" class="btn btn-danger">Cancel</button>
+                    <button type="submit" class="btn btn-success"
+                    [disabled]="!recipeForm.valid">Save</button>
+                    <button type="button" class="btn btn-danger"
+                    (click)="onCancel()">Cancel</button>
                 </div>
             </div>
             <div class="row">
@@ -27,19 +29,20 @@
                         type="text" 
                         id="imgPath"
                         formControlName="imgPath"
-                        class="form-control">
+                        class="form-control"
+                        #imagePath>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                 <img src="" alt="" class="img-responsiv">
+                 <img [src]="imagePath.value" alt="" class="img-responsive">
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="form-group">
-                        <label for="description">Image Url</label>
+                        <label for="description">Description</label>
                         <textarea
                         type="text" 
                         id="description"
@@ -65,7 +68,8 @@
                             formControlName="amount">
                         </div>
                         <div class="col-xs-2">
-                            <button class="btn btn-danger">x</button>
+                            <button type="button" class="btn btn-danger"
+                            (click)="onDeleteIg(i)">x</button>
                         </div>
                     </div>
                     <hr>

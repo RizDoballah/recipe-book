@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 
 import { Ingredient } from '../shared/ingredient.model';
 import {ShoppingListService } from '../services/shopping-list.service';
@@ -18,14 +18,13 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.ingredients = this.slService.getIngredients();
       this.ingredientSubscription = this.slService.ingredientsChanged
-      .subscribe(
+       .subscribe(
         (ingredients:Ingredient[]) => {
           this.ingredients = ingredients;
-      }
+     }
     );
   }
   ngOnDestroy(){
-    this.ingredientSubscription.unsubscribe();
-  }
-
+     this.ingredientSubscription.unsubscribe();
+   }
 }

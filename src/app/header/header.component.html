@@ -14,8 +14,10 @@
         <li class="dropdown" >
           <a  class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu" [ngClass]="{'show':r.isOpen}">
-            <li><a>Save Data</a></li>
-            <li><a>Fetch Data</a></li>
+            <li><a
+              (click)="onStoreRecipe()">Save Data</a></li>
+            <li><a
+              (click)="onFetchRecipe()">Fetch Data</a></li>
           </ul>
         </li>
       </ul>
